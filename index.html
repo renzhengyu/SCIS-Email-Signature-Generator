@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SCIS Email Signature Generator</title>
+  <meta name="description" content="Official Email Signature Generator for Shanghai Community International School (SCIS). Compliant with SCIS Brand Identity Guidelines Ver. 1.1 for Outlook Web, Mac, and Windows.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Top Header Navigation (No Logo Icon) -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand">
+        <h1 class="app-title">SCIS Email Signature Generator</h1>
+      </div>
+      <div class="header-badge">Official SCIS Standard</div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="main-container">
+
+    <div class="app-grid">
+
+      <!-- Left Column: Input Form -->
+      <section class="card form-card">
+        <div class="card-header">
+          <h2>1. Enter Your Information</h2>
+          <p class="subtitle">Fill out your details to generate your official SCIS email signature.</p>
+        </div>
+
+        <form id="sigForm" onsubmit="event.preventDefault();">
+          <div class="form-row">
+            <div class="form-group required">
+              <label for="firstName">First Name</label>
+              <input type="text" id="firstName" placeholder="e.g. Li" required value="Li">
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name <span class="optional-label">(Optional)</span></label>
+              <input type="text" id="lastName" placeholder="e.g. Lin" value="Lin">
+            </div>
+          </div>
+
+          <div class="form-group required">
+            <label for="jobTitle">Job Title</label>
+            <input type="text" id="jobTitle" placeholder="e.g. Math Teacher" required value="Math Teacher">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group required">
+              <label for="email">SCIS Email Address</label>
+              <input type="text" id="email" placeholder="e.g. llin or llin@scis-china.org" required value="llin@scis-china.org">
+              <p class="field-hint">Tip: You can enter just your username (e.g. <code>llin</code>) and <code>@scis-china.org</code> will be added automatically.</p>
+            </div>
+            <div class="form-group">
+              <label for="extension">Telephone Extension <span class="optional-label">(Optional)</span></label>
+              <input type="text" id="extension" placeholder="e.g. 1234" value="">
+              <p class="field-hint">If you don't know what your extension is, leave it empty.</p>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="campus">Campus / Office Location</label>
+            <select id="campus">
+              <option value="hongqiao_main" selected>Hongqiao Campus (Main / Systemwide)</option>
+              <option value="hongqiao_ece">Hongqiao ECE Campus</option>
+              <option value="pudong">Pudong Campus</option>
+            </select>
+            <p class="field-hint">📌 <strong>Systemwide staff:</strong> Select <em>Hongqiao Campus (Main / Systemwide)</em> as System offices are physically located at Hongqiao Main Campus.</p>
+          </div>
+
+          <div class="preset-info-box" id="presetInfoBox">
+            <div class="info-item">
+              <span class="info-label">Address:</span>
+              <span id="presetAddress">1161 Hongqiao Road, Changning, Shanghai, China 200051</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Phone:</span>
+              <span id="presetPhone">86-21-6261-4338</span>
+            </div>
+          </div>
+        </form>
+      </section>
+
+      <!-- Right Column: Live Signature Preview & Actions -->
+      <section class="card preview-card">
+        <div class="card-header preview-header">
+          <h2>2. Signature Preview</h2>
+          <span class="live-indicator"><span class="dot"></span> Live Preview</span>
+        </div>
+
+        <div class="preview-box-wrapper">
+          <div class="preview-box" id="previewBox" tabindex="0" title="Click to select signature">
+            <!-- Signature HTML rendered dynamically -->
+          </div>
+        </div>
+
+        <div class="action-buttons">
+          <button type="button" class="btn btn-primary" id="copyRichBtn">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            Copy Signature (Outlook Ready)
+          </button>
+          
+          <button type="button" class="btn btn-secondary" id="copyHtmlBtn">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+            Copy Raw HTML
+          </button>
+        </div>
+
+        <div class="compliance-note">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+          </svg>
+          <span>All visual standards are strictly based on official <strong>SCIS Brand Identity Guidelines Ver. 1.1</strong> (Gill Sans font, 10.5pt bold name, 10pt details, black/official gray <code>#808285</code>).</span>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Outlook Setup Instructions Section -->
+    <section class="card guide-card">
+      <div class="card-header">
+        <h2>3. How to Set Up Signature in Microsoft Outlook</h2>
+        <p class="subtitle">Follow the steps below for your Outlook version, or refer to official Microsoft documentation.</p>
+      </div>
+
+      <div class="tab-buttons" role="tablist">
+        <button class="tab-btn active" data-tab="tab-web" role="tab">Outlook Web App (OWA)</button>
+        <button class="tab-btn" data-tab="tab-mac" role="tab">Outlook for Mac</button>
+        <button class="tab-btn" data-tab="tab-win" role="tab">Outlook for Windows</button>
+      </div>
+
+      <div class="tab-content-container">
+        <!-- Outlook Web Tab -->
+        <div class="tab-pane active" id="tab-web">
+          <ol class="step-list">
+            <li>Click the <strong>Copy Signature (Outlook Ready)</strong> button above.</li>
+            <li>Open <a href="https://outlook.office.com" target="_blank" rel="noopener">Outlook Web App</a> in your browser.</li>
+            <li>Click the <strong>Settings (⚙️)</strong> icon in the top header.</li>
+            <li>In the settings menu, go to <strong>Account</strong> (or <strong>Mail</strong>) &rarr; <strong>Signatures</strong> (or <strong>Compose and reply</strong>).</li>
+            <li>Click <strong>Add signature</strong> (or <strong>+ New signature</strong>) and type a signature name (e.g. <em>Standard</em>).</li>
+            <li>Click inside the signature editor box and paste your signature (Press <strong>Cmd+V</strong> on Mac or <strong>Ctrl+V</strong> on Windows).</li>
+            <li>Under <em>Select default signatures</em>, set <strong>For New Messages</strong> and <strong>For Replies/Forwards</strong> to <em>Standard</em>.</li>
+            <li>Click <strong>Save</strong>.</li>
+          </ol>
+          <div class="official-doc-link">
+            📖 <em>Need further guidance? View official Microsoft instructions:</em> 
+            <a href="https://support.microsoft.com/en-us/outlook/mail/how-to-add-and-change-an-email-signature-in-outlook" target="_blank" rel="noopener">Official Microsoft Outlook Signature Guide ↗</a>
+          </div>
+        </div>
+
+        <!-- Outlook Mac Tab -->
+        <div class="tab-pane" id="tab-mac">
+          <ol class="step-list">
+            <li>Click the <strong>Copy Signature (Outlook Ready)</strong> button above.</li>
+            <li>Open the <strong>Outlook App</strong> on your Mac.</li>
+            <li>In the top menu bar, click <strong>Outlook</strong> &rarr; <strong>Settings...</strong> (or press <strong>Cmd + ,</strong>).</li>
+            <li>Under <em>Email</em>, click <strong>Signatures</strong>.</li>
+            <li>Click <strong>+</strong> (Add signature), name it <em>Standard</em>, and paste your copied signature into the box (<strong>Cmd+V</strong>).</li>
+            <li>Set your default signature for <em>New messages</em> and <em>Replies/forwards</em> to <em>Standard</em>.</li>
+            <li>Close the window to save.</li>
+          </ol>
+          <div class="official-doc-link">
+            📖 <em>Need further guidance? View official Microsoft instructions:</em> 
+            <a href="https://support.microsoft.com/en-us/outlook/mail/how-to-add-and-change-an-email-signature-in-outlook" target="_blank" rel="noopener">Official Microsoft Outlook Signature Guide ↗</a>
+          </div>
+        </div>
+
+        <!-- Outlook Windows Tab -->
+        <div class="tab-pane" id="tab-win">
+          <ol class="step-list">
+            <li>Click the <strong>Copy Signature (Outlook Ready)</strong> button above.</li>
+            <li>Open <strong>Outlook Desktop App</strong> on Windows.</li>
+            <li>Go to <strong>File</strong> &rarr; <strong>Options</strong> &rarr; <strong>Mail</strong> &rarr; <strong>Signatures...</strong> (or click <strong>New Email</strong> &rarr; <strong>Signature</strong> &rarr; <strong>Signatures...</strong>).</li>
+            <li>Click <strong>New</strong>, type a signature name (e.g. <em>Standard</em>), and click OK.</li>
+            <li>Click inside the signature edit box and paste your signature (<strong>Ctrl+V</strong>).</li>
+            <li>Under <em>Choose default signature</em>, select your account and set <strong>New messages</strong> and <strong>Replies/forwards</strong> to <em>Standard</em>.</li>
+            <li>Click <strong>OK</strong> to save.</li>
+          </ol>
+          <div class="official-doc-link">
+            📖 <em>Need further guidance? View official Microsoft instructions:</em> 
+            <a href="https://support.microsoft.com/en-us/outlook/mail/how-to-add-and-change-an-email-signature-in-outlook" target="_blank" rel="noopener">Official Microsoft Outlook Signature Guide ↗</a>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="app-footer">
+    <div class="footer-container">
+      <p>&copy; Shanghai Community International School — Technology &amp; Innovation Department.</p>
+    </div>
+  </footer>
+
+  <!-- Toast Notification element -->
+  <div id="toast" class="toast" role="alert" aria-live="polite">
+    <div class="toast-content">
+      <svg class="toast-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+      <span id="toastMsg">Signature copied to clipboard!</span>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
