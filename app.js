@@ -170,10 +170,22 @@
     previewBox.innerHTML = generateSignatureHTML();
   }
 
+  // Helper to safely track Umami custom events
+  function trackEvent(eventName, eventData) {
+    if (window.umami && typeof window.umami.track === 'function') {
+      try {
+        window.umami.track(eventName, eventData);
+      } catch (e) {
+        console.warn('Umami event tracking error:', e);
+      }
+    }
+  }
+
   // Copy Signature to Clipboard as Rich Text
   async function copyRichSignature() {
     const htmlString = generateSignatureHTML();
     const plainTextString = generateSignaturePlainText();
+    trackEvent('copy-signature-rich', { campus: campusSelect.value });
 
     // 1. Try Clipboard API with ClipboardItem
     if (navigator.clipboard && window.ClipboardItem) {
@@ -217,6 +229,8 @@
   // Copy Raw HTML Code to Clipboard
   async function copyHtmlCode() {
     const htmlString = generateSignatureHTML();
+    trackEvent('copy-signature-html', { campus: campusSelect.value });
+
     try {
       if (navigator.clipboard && navigator.clipboard.writeText) {
         await navigator.clipboard.writeText(htmlString);

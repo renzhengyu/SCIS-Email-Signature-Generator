@@ -27,14 +27,16 @@ A lightweight, zero-dependency, single-page web application designed for **Shang
   - Uses native Rich Text Clipboard APIs with DOM range selection fallback to ensure perfect formatting when pasted into Outlook Web App, Outlook for Mac, or Outlook for Windows.
 - **Built-in Setup Instructions**:
   - Includes step-by-step guides and links to official Microsoft documentation: [Microsoft Outlook Signature Guide](https://support.microsoft.com/en-us/outlook/mail/how-to-add-and-change-an-email-signature-in-outlook).
+- **Privacy-focused Analytics**:
+  - Embedded Umami Analytics integration for privacy-first tracking of page views and signature copy events.
 
 ---
-
 
 ## 📁 Repository Structure
 
 ```
-├── index.html     # Main Single-Page HTML template & Outlook guides
+├── .gitignore     # Git ignore patterns (.DS_Store, system files)
+├── index.html     # Main Single-Page HTML template, Umami script & Outlook guides
 ├── styles.css     # SCIS Navy (#13284B) theme & responsive UI styling
 ├── app.js         # Generator logic, campus presets, & clipboard handling
 ├── README.md      # Documentation & deployment guide
