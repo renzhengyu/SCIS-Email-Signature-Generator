@@ -32,6 +32,14 @@
   const COLOR_BLUE = '#0066cc';
   const DEFAULT_DOMAIN = 'scis-china.org';
 
+  // SCIS 30th Anniversary Logo Settings (Expires end of June 30, 2027)
+  const ANNIVERSARY_LOGO_URL = 'https://www.scis.edu.cn/public/SCIS-logo-30-anniversary-240-60.png';
+  const ANNIVERSARY_EXPIRY_DATE = new Date('2027-07-01T00:00:00+08:00'); // Valid through June 30, 2027
+
+  function isAnniversaryActive() {
+    return new Date() < ANNIVERSARY_EXPIRY_DATE;
+  }
+
   // DOM Elements
   const firstNameInput = document.getElementById('firstName');
   const lastNameInput = document.getElementById('lastName');
@@ -133,6 +141,16 @@
     // Font stack: Gill Sans (SCIS Brand Identity Guidelines Ver. 1.1)
     const fontStack = "'Gill Sans', 'Gill Sans MT', Calibri, sans-serif";
 
+    // 30th Anniversary Logo block (Active through June 30, 2027)
+    let logoHtml = '';
+    if (isAnniversaryActive()) {
+      logoHtml = `<div style="margin-top: 10px; line-height: 1;">` +
+        `<a href="https://www.scis-china.org" target="_blank" style="text-decoration: none; border: 0;">` +
+        `<img src="${ANNIVERSARY_LOGO_URL}" alt="SCIS 30th Anniversary" width="240" height="60" style="display: block; border: 0; width: 240px; height: 60px; outline: none; text-decoration: none;" />` +
+        `</a>` +
+        `</div>`;
+    }
+
     return `<div style="font-family: ${fontStack}; line-height: 1.35; margin: 0; padding: 0;">` +
       `<div style="font-family: ${fontStack}; font-size: 10.5pt; font-weight: bold; color: ${COLOR_BLACK}; margin-bottom: 2px;">${escapeHtml(fullName)}</div>` +
       `<div style="font-family: ${fontStack}; font-size: 10pt; font-weight: normal; color: ${COLOR_GRAY}; margin-bottom: 2px;">${escapeHtml(jobTitle)}</div>` +
@@ -140,6 +158,7 @@
       `<div style="font-family: ${fontStack}; font-size: 10pt; font-weight: normal; color: ${COLOR_GRAY}; margin-bottom: 2px;">${escapeHtml(campus.address)}</div>` +
       `<div style="font-family: ${fontStack}; font-size: 10pt; font-weight: normal; color: ${COLOR_GRAY}; margin-bottom: 2px;">${phoneStr}</div>` +
       `<div style="font-family: ${fontStack}; font-size: 10pt; font-weight: normal; color: ${COLOR_GRAY};">Email: <a href="mailto:${escapeHtml(email)}" style="color: ${COLOR_BLUE}; text-decoration: underline;">${escapeHtml(email)}</a> Website: <a href="https://www.scis-china.org" target="_blank" style="color: ${COLOR_BLUE}; text-decoration: underline;">www.scis-china.org</a></div>` +
+      logoHtml +
       `</div>`;
   }
 
