@@ -25,7 +25,7 @@ A lightweight, zero-dependency, single-page web application designed for **Shang
 - **Telephone Extension Handling**:
   - Optional field. Formats seamlessly as `Phone: 86-21-XXXX-XXXX ext. 1234` when entered.
 - **SCIS 30th Anniversary Logo**:
-  - Automatically incorporates the official 30th Anniversary emblem (`240x60` px) hosted on Ali Cloud CDN (`https://www.scis.edu.cn/public/SCIS-logo-30-anniversary-240-60.png`).
+  - Automatically incorporates the official 30th Anniversary emblem (`240x60` px) hosted on Ali Cloud CDN (`https://www.scis.edu.cn/public/SCIS-logo-30-anniversary-240-60.svg`).
   - Automated sunset rule: active only through **June 30, 2027**, after which it automatically ceases to be attached to new signatures.
 - **1-Click Outlook Ready Clipboard Copy**:
   - Uses native Rich Text Clipboard APIs with DOM range selection fallback to ensure perfect formatting when pasted into Outlook Web App, Outlook for Mac, or Outlook for Windows.
