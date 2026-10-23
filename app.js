@@ -33,7 +33,7 @@
   const DEFAULT_DOMAIN = 'scis-china.org';
 
   // SCIS 30th Anniversary Logo Settings (Expires end of June 30, 2027)
-  const ANNIVERSARY_LOGO_URL = 'https://www.scis.edu.cn/public/SCIS-logo-30-anniversary-240-60.svg';
+  const ANNIVERSARY_LOGO_URL = 'https://www.scis.edu.cn/public/SCIS-logo-30-anniversary-240-60.png';
   const ANNIVERSARY_EXPIRY_DATE = new Date('2027-07-01T00:00:00+08:00'); // Valid through June 30, 2027
 
   function isAnniversaryActive() {
