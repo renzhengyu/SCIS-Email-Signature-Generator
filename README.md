@@ -2,7 +2,7 @@
 
 A lightweight, zero-dependency, single-page web application designed for **Shanghai Community International School (SCIS)** faculty and staff to generate standardized, compliant email signatures easily for Microsoft Outlook (Web, Mac, and Windows).
 
-![Version](https://img.shields.io/badge/version-1.0-blue.svg)
+![Version](https://img.shields.io/badge/version-1.1-blue.svg)
 ![SCIS Brand Identity Guidelines Ver. 1.1 Compliant](https://img.shields.io/badge/SCIS%20Brand%20Guidelines-Ver.%201.1-13284B)
 ![GitHub Pages Compatible](https://img.shields.io/badge/GitHub%20Pages-Ready-brightgreen)
 ![License: Unlicense](https://img.shields.io/badge/License-Unlicense-blue.svg)
